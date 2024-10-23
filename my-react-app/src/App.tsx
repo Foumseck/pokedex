@@ -13,8 +13,6 @@ const pokemonList = [
   },  
 ];
 
-
-
 function App() {
 
   return (
