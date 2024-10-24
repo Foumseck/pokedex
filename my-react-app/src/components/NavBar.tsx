@@ -1,5 +1,6 @@
 import PokemonCards from './PokemonCard';
 
+
 interface Pokemon {
     name: string;  
     imgSrc?: string;  
@@ -13,7 +14,12 @@ interface NavBarProps {
 }
 
 const NavBar = ({ pokemonIndex, setPokemonIndex, pokemonList }: NavBarProps) => {
-   
+    const handlePokemonSelect = (index: number) => {
+        setPokemonIndex(index);
+        if (pokemonList[index].name === "pikachu") {
+          alert("pika pikachu !!!");
+        }
+      };
 
 
     return (        
@@ -21,7 +27,7 @@ const NavBar = ({ pokemonIndex, setPokemonIndex, pokemonList }: NavBarProps) => 
             <PokemonCards pokemon={pokemonList[pokemonIndex]} />
 
             {pokemonList.map((pokemon, index) => (    
-                <button key={pokemon.name} type="button" onClick={() => setPokemonIndex(index)}>
+                <button key={pokemon.name} type="button" onClick={() => handlePokemonSelect(index)}>
                     {pokemon.name} 
                 </button>
 ))}
